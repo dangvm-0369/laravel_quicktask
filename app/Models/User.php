@@ -63,6 +63,7 @@ class User extends Authenticatable
             get: fn($value) => $this->attributes['first_name'] . ' ' . $this->attributes['last_name'],
         );
     }
+    
     protected function username(): Attribute
     {
         return Attribute::make(
