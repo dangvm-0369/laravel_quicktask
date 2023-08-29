@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::resource('/users', UserController::class);
+
+Route::controller(CarController::class)->group(function (){
+   Route::prefix('/cars')->group(function (){
+       Route::get('/', 'index')->name('tasks.index');
+       Route::get('/create', 'create')->name('tasks.create');
+       Route::post('/', 'store')->name('tasks.store');
+       Route::get('/cars/{car}', 'show')->name('tasks.show');
+       Route::get('/cars/{car}/edit', 'edit')->name('tasks.edit');
+       Route::put('/cars/{car}', 'update')->name('tasks.update');
+       Route::delete('/cars/{car}', 'destroy')->name('tasks.destroy');
+   });
 });
