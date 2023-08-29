@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/users', UserController::class);
+Route::resource('/users', UserController::class)->middleware(['admin']);
 
 Route::controller(CarController::class)->group(function (){
    Route::prefix('/cars')->group(function (){
