@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,5 +44,7 @@ Route::controller(CarController::class)->group(function (){
         Route::delete('/cars/{car}', 'destroy')->name('tasks.destroy');
     });
 });
+
+Route::get('language/{lang}', [LanguageController::class, 'changeLanguage'])->name('locale');
 
 require __DIR__.'/auth.php';
