@@ -12,6 +12,19 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+            <div class="mt-4">
+                <x-input-label for="car" :value="__('Car')" />
+
+                <x-text-input id="car" class="block mt-1 w-full"
+                    type="text"
+                    name="car"
+                    required autocomplete="car" />
+
+                <x-input-error :messages="$errors->get('car')" class="mt-2"/>
+            </div>
+            <x-primary-button class="mt-4">
+                {{ __('+') }}
+            </x-primary-button>
         </div>
     </div>
 </x-app-layout>

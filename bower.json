@@ -1,0 +1,22 @@
+{
+  "name": "laravel_quicktask",
+  "description": "'manage package installed'",
+  "main": "",
+  "authors": [
+    "dangvm-0369 <vu.minh.dang@sun-asterisk.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dangvm-0369/laravel_quicktask",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "notus-react": "git@github.com:dangvm-0369/notus-react.git",
+    "template-bower-example": "git@github.com:manhtd-1083/template-bower-example.git",
+    "light-bootstrap-dashboard": "git@github.com:creativetimofficial/light-bootstrap-dashboard.git"
+  }
+}
