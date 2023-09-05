@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('User List') }}
+            {{ __('Users List') }}
         </h2>
     </x-slot>
 
@@ -9,10 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("User List") }}
+                    {{ __("Users List") }}
                 </div>
             </div>
-            <x-primary-button class="mt-4">
+            <x-primary-button class="mt-4" onclick="location.href='{{ route('users.create')}}'">
                 {{__('Create New User')}}
             </x-primary-button>
             <table class="table mt-4">
@@ -21,6 +21,9 @@
                         <th class="text-gray-900 dark:text-gray-100" scope="col"> # </th>
                         <th class="text-gray-900 dark:text-gray-100" scope="col"> {{ __("Name") }} </th>
                         <th class="text-gray-900 dark:text-gray-100" scope="col"> {{ __("User Name")}} </th>
+                        <th class="text-gray-900 dark:text-gray-100" scope="col"> {{ __("Email")}} </th>
+                        <th class="text-gray-900 dark:text-gray-100" scope="col"> {{ __("Roles")}} </th>
+                        <th class="text-gray-900 dark:text-gray-100" scope="col"> {{ __("Cars")}} </th>
                         <th class="text-gray-900 dark:text-gray-100" scope="col"> {{ __("Action") }} </th>
                     </tr>
                 </thead>
@@ -30,6 +33,19 @@
                             <th class="text-gray-900 dark:text-gray-100 text-center" scope="row">{{ ++$index  }}</th>
                             <td class="text-gray-900 dark:text-gray-100 text-center">{{ $user->fullName }}</td>
                             <td class="text-gray-900 dark:text-gray-100 text-center">{{ $user->username }}</td>
+                            <td class="text-gray-900 dark:text-gray-100 text-center">{{ $user->email }}</td>
+                            <td class="text-gray-900 dark:text-gray-100 text-center" style="text-transform: capitalize">
+                                @foreach($user->roles as $role)
+                                    {{ $role->name }}
+                                    <br>
+                                @endforeach
+                            </td>
+                            <td class="text-gray-900 dark:text-gray-100 text-center" style="text-transform: capitalize">
+                                @foreach($user->cars as $car)
+                                    {{ $car->name }}
+                                    <br>
+                                @endforeach
+                            </td>
                             <td class="text-gray-900 dark:text-gray-100 text-center">
                                 <x-secondary-button class="mt-4" onclick="location.href='{{ route('users.show', ['user' => $user->id]) }}'">
                                     {{__('Show')}}

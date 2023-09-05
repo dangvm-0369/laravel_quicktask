@@ -36,9 +36,6 @@
                                     @endforeach
                                 </td>
                                 <td class="text-gray-900 dark:text-gray-100 text-center">
-                                    <x-secondary-button class="mt-4" onclick="location.href='{{ route('users.show', ['user' => $user->id]) }}'">
-                                        {{__('Show')}}
-                                    </x-secondary-button>
                                     <x-primary-button class="mt-4" onclick="location.href='{{ route('users.edit', ['user' => $user->id]) }}'">
                                         {{__('Edit')}}
                                     </x-primary-button>
@@ -55,6 +52,9 @@
                     </table>
                 </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100 mt-4">
+                    <x-primary-button class="mb-4" onclick="location.href='{{ route('cars.create', [$user->id])}}'">
+                        {{__('Create New Car')}}
+                    </x-primary-button>
                     <h3 class="font-medium" style="text-transform: capitalize">
                         {{ __("Cars List") }}
                     </h3>
@@ -76,9 +76,6 @@
                                     <td class="text-gray-900 dark:text-gray-100 text-center">{{ $car->name }}</td>
                                     <td class="text-gray-900 dark:text-gray-100 text-center">{{ $car->cost . '$' }}</td>
                                     <td class="text-gray-900 dark:text-gray-100 text-center">
-                                        <x-secondary-button class="mt-4" onclick="location.href='{{ route('cars.show', ['car' => $car->id]) }}'">
-                                            {{__('Show')}}
-                                        </x-secondary-button>
                                         <x-primary-button class="mt-4" onclick="location.href='{{ route('cars.edit', ['car' => $car->id]) }}'">
                                             {{__('Edit')}}
                                         </x-primary-button>

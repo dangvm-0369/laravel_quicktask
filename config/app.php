@@ -185,4 +185,5 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'role_user_id' => env('ROLE_USER_ID')
 ];
